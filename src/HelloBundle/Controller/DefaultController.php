@@ -25,13 +25,13 @@ class DefaultController extends Controller
     			'category_name' => 'カテゴリ5');
     	 
 		$user1 = array(
-			'name' => 'かてごり',
+			'username' => 'かてごり',
 			'email' => 'ebara@');
 		$user2 = array(
-			'name' => 'test',
+			'username' => 'test',
 			'email' => 'test@');
 		$user3 = array(
-			'name' => 'aaa',
+			'username' => 'aaa',
 			'email' => 'aaa@');
 		$categorys = array($category1, $category2, $category3, $category4,$category5);
 		$users = array($user1, $user2, $user3);
