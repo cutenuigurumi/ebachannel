@@ -8,6 +8,13 @@
 {% if name == 'test' %}
     <p>この表示が見えていればif文はカンペキです。</p>
 {% endif %}
+
+{% for category in categorys %}
+	<p>{{ category.category_id|e }}</p>
+	<p>{{ category.category_name|e }}</p>
+
+{% endfor %}
+
 現在の時刻は{{ time }}です。
 <h1>Members</h1>
 <table>
