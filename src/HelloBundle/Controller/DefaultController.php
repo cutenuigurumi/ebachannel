@@ -33,10 +33,10 @@ class DefaultController extends Controller
 		$user3 = array(
 			'name' => 'aaa',
 			'email' => 'aaa@');
-		$categorys = array($category1, $category2, $category3, $category4);
+		$categorys = array($category1, $category2, $category3, $category4,$category5);
 		$users = array($user1, $user2, $user3);
 		$time = date( "Y/m/d (D) H:i:s", time());
-        return $this->render('WinRoadHelloBundle:Default:index.html.twig', array('name' => $name, 'time' => $time, 'users' => $users));
+        return $this->render('WinRoadHelloBundle:Default:index.html.twig', array('name' => $name, 'time' => $time, 'users' => $users, 'categorys' => $categorys));
 		
     }
 }
