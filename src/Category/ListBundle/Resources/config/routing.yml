@@ -1,0 +1,3 @@
+category_list_homepage:
+    path:     /category/{name}
+    defaults: { _controller: CategoryListBundle:Default:index }

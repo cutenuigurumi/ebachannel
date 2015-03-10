@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}ブログ記事の一覧{% endblock %}
+
+{% block body %}
+
+<h1>カテゴリ一覧</h1>
+{% for categorys in categorys %}
+    <p>{{ categorys|e }}</p>
+
+{% endfor %}
+
+{% endblock %}
+

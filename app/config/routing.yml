@@ -1,3 +1,7 @@
+category_list:
+    resource: "@CategoryListBundle/Resources/config/routing.yml"
+    prefix:   /
+
 win_road_hello:
     resource: "@WinRoadHelloBundle/Resources/config/routing.yml"
     prefix:   /
