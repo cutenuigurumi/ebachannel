@@ -1,6 +1,6 @@
 <?php
 
-namespace Category\ListBundle\Controller;
+namespace admin\CategoryBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -12,6 +12,6 @@ class DefaultController extends Controller
 			$categorys[$i] = 'カテゴリ'.$i;
 		}
 
-        return $this->render('CategoryListBundle:Default:index.html.twig', array('name' => $name, 'categorys' => $categorys));
+        return $this->render('adminCategoryBundle:Default:index.html.twig', array('name' => $name, 'categorys' => $categorys));
     }
 }

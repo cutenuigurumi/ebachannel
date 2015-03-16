@@ -1,0 +1,14 @@
+Admin\CategoryBundle\Entity\post:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: text
+
+    lifecycleCallbacks: {  }

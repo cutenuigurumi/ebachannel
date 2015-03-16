@@ -1,0 +1,21 @@
+HelloBundle\Entity\Product:
+    type: entity
+    table: Product
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 100
+        price:
+            type: decimal
+            scale: 2
+        description:
+            type: text
+        test:
+            type: text
+    lifecycleCallbacks: {  }
