@@ -197,7 +197,7 @@ class postController extends Controller
             $em->remove($entity);
             $em->flush();
         }
-        return $this->redirect($this->generateUrl('post'));
+        return $this->render('AdminCategoryBundle:post:delete.html.twig', array('id' => $id));
     }
     /**
      * Creates a form to delete a post entity by id.

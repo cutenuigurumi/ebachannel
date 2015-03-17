@@ -24,23 +24,32 @@ class DefaultController extends Controller
         return $this->render('AdminCategoryBundle:Default:index.html.twig', array('product' => $product));
     }
 
-    public function newAction(Request $request)
+    public function newAction()
     {
-        // Productオブジェクトを作成し、ダミーデータを設定する
         $product = new Product();
+        $product->setName('Foo');
+        $product->setPrice(19.99);
 
-        $form = $this->createFormBuilder($product)
-            ->add('name', 'text')
-            ->getForm();
-	    if ($request->getMethod() == 'POST') {
-	        $form->bindRequest($request);
-			if ($form->isValid()) {
-    	        // データベースへの保存など、何らかのアクションを実行する
+		//接続を永続化	
+        $em = $this->getDoctrine()->getEntityManager();
+		//doctrineにmanageするように伝えている
+        $em->persist($product);
+        $em->flush();
 
-        return $this->render('AdminCategoryBundle:Default:new.html.twig', array(
-            'form' => $form->createView(),
-        ));
-		    }
-		}
+        return $this->render('AdminCategoryBundle:Default:new.html.twig', array('product' => $product));
+
+    }
+	public function updateAction()
+	{
+
+		$repository = $this->getDoctrine()
+        ->getRepository('AdminCategoryBundle:Product');
+        //全ての商品をfind(SELECT * FROM Product)
+		$product = $repository->findOneById($id);
+
+        return $this->render('AdminCategoryBundle:Default:edit.html.twig', array('product' => $product));
+
+
 	}
+
 }

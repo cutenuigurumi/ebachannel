@@ -4,3 +4,6 @@ product:
 product_new:
     path:     /new
     defaults: { _controller: "AdminCategoryBundle:Default:new" }
+product_edit:
+    path:     /edit
+    defaults: { _controller: "AdminCategoryBundle:Default:update" }
