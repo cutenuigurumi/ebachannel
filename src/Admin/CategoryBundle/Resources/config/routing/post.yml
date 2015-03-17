@@ -27,4 +27,4 @@ post_update:
 post_delete:
     path:     /{id}/delete
     defaults: { _controller: "AdminCategoryBundle:post:delete" }
-    requirements: { _method: post|delete }
+    requirements: { _method: |post|delete|get }

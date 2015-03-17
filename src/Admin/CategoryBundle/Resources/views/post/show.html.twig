@@ -6,23 +6,23 @@
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>カテゴリID</th>
+                <th>カテゴリの名前</th>
+			</tr>
+			<tr>
                 <td>{{ entity.id }}</td>
+                <td>{{ entity.name }}</td>
             </tr>
         </tbody>
     </table>
-
+		<p>
         <ul class="record_actions">
-    <li>
         <a href="{{ path('post') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
+			カテゴリ一覧に戻る
+        </a></p>
         <a href="{{ path('post_edit', { 'id': entity.id }) }}">
             Edit
         </a>
-    </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

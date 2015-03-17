@@ -22,9 +22,7 @@ class postController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $entities = $em->getRepository('AdminCategoryBundle:post')->findAll();
-
         return $this->render('AdminCategoryBundle:post:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -36,6 +34,7 @@ class postController extends Controller
     public function createAction(Request $request)
     {
         $entity = new post();
+		//空のエンティティからフォームを作成する
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,7 +43,7 @@ class postController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('post_show', array('id' => $entity->getId(), 'name' => $entity->getName())));
+            return $this->redirect($this->generateUrl('post_show', array('id' => $entity->getId())));
         }
 
         return $this->render('AdminCategoryBundle:post:new.html.twig', array(
@@ -91,11 +90,11 @@ class postController extends Controller
      * Finds and displays a post entity.
      *
      */
-    public function showAction($id, $name)
+    public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AdminCategoryBundle:post')->find($id, $name);
+        $entity = $em->getRepository('AdminCategoryBundle:post')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find post entity.');
@@ -189,22 +188,17 @@ class postController extends Controller
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AdminCategoryBundle:post')->find($id);
-
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find post entity.');
             }
-
             $em->remove($entity);
             $em->flush();
         }
-
         return $this->redirect($this->generateUrl('post'));
     }
-
     /**
      * Creates a form to delete a post entity by id.
      *

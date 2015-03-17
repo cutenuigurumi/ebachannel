@@ -1,0 +1,6 @@
+product:
+    path:   /
+    defaults: { _controller: "AdminCategoryBundle:Default:index" }
+product_new:
+    path:     /new
+    defaults: { _controller: "AdminCategoryBundle:Default:new" }

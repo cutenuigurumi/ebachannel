@@ -8,7 +8,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class postType extends AbstractType
 {
-
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -18,7 +17,10 @@ class postType extends AbstractType
             'data_class' => 'Admin\CategoryBundle\Entity\post'
         ));
     }
-
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('name', 'textarea');
+    }
     /**
      * @return string
      */
