@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Admin\CategoryBundle\Entity\Product;
+use Admin\CategoryBundle\Form\ProductType;
 
 
 class DefaultController extends Controller
@@ -21,13 +22,19 @@ class DefaultController extends Controller
         return $this->render('AdminCategoryBundle:Default:index.html.twig', array('product' => $product));
     }
 
-    public function newAction()
+    public function newAction(Request $request)
     {
 		//productオブジェクトの生成
         $product = new Product();
 		//ダミーデータの生成
-        $product->setName('Foo');
 
+        $form = $this->createFormBuilder($product)
+			->add('name', 'text')
+			->getForm();
+		if ($request->getMethod() == 'POST') {
+			//bindRequestが呼び出された時点でフォームに反映される
+ 			$form->bind($request);
+			if ($form->isValid()) {
 		//Entityマネージャー
         $em = $this->getDoctrine()->getEntityManager();
 		//プログラム側のエンティティに追加
@@ -35,8 +42,14 @@ class DefaultController extends Controller
 		//データベースに反映
         $em->flush();
 
+		return $this->redirect($this->generateUrl('product'));
 
-        return $this->render('AdminCategoryBundle:Default:new.html.twig', array('product' => $product));
+			
+			}
+		}
+        return $this->render('AdminCategoryBundle:Default:new.html.twig', array('product' => $product,  'form' => $form->createView()));
+
+
 
     }
 	public function editAction($id)
