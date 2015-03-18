@@ -14,7 +14,9 @@
 		<tr>
 			<td>{{ category.id }}</td>
 			<td>{{ category.name }}</td>
-			<td><a href="{{ path('product_edit')}}">編集</a></td>
+			<td><a href="{{ path('product_edit', { 'id': category.id }) }}">編集</a></td>
+			<td><a href="{{ path('product_delete', { 'id': category.id }) }}">削除</a></td>
+
 		</tr>
 		{% endfor %}
 	</table>

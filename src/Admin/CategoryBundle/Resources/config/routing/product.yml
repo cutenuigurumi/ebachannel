@@ -1,9 +1,12 @@
 product:
-    path:   /
+    path:   /listShow
     defaults: { _controller: "AdminCategoryBundle:Default:index" }
 product_new:
     path:     /new
     defaults: { _controller: "AdminCategoryBundle:Default:new" }
 product_edit:
-    path:     /edit
-    defaults: { _controller: "AdminCategoryBundle:Default:update" }
+    path:     /{id}/detailEdit
+    defaults: { _controller: "AdminCategoryBundle:Default:edit" }
+product_delete:
+    path:     /{id}/detailDelete
+    defaults: { _controller: "AdminCategoryBundle:Default:delete" }

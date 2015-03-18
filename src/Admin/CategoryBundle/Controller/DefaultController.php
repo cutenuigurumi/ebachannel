@@ -28,9 +28,9 @@ class DefaultController extends Controller
 		//ダミーデータの生成
         $product->setName('Foo');
 
-		//接続を永続化?
+		//Entityマネージャー
         $em = $this->getDoctrine()->getEntityManager();
-		//doctrineにmanageするように伝えている?
+		//プログラム側のエンティティに追加
         $em->persist($product);
 		//データベースに反映
         $em->flush();
@@ -39,17 +39,30 @@ class DefaultController extends Controller
         return $this->render('AdminCategoryBundle:Default:new.html.twig', array('product' => $product));
 
     }
-	public function updateAction()
+	public function editAction($id)
 	{
-		
-		$repository = $this->getDoctrine()
-        ->getRepository('AdminCategoryBundle:Product');
-        //全ての商品をfind(SELECT * FROM Product)
-		
+		$em = $this->getDoctrine()->getEntityManager();
+		$product = $em->getRepository('AdminCategoryBundle:Product')->find($id);
+		if (!$product) {
+			throw $this->createNotFoundException('No product found for id '.$id);
+		}
+		$product->setName('変更しました');
+		$em->flush();
 
-        return $this->render('AdminCategoryBundle:Default:edit.html.twig', array('product' => $product));
-
+		return $this->render('AdminCategoryBundle:Default:edit.html.twig', array('product' => $product));
+	}
+	public function deleteAction($id)
+	{
+		$em = $this->getDoctrine()->getEntityManager();
+		$product = $em->getRepository('AdminCategoryBundle:Product')->find($id);
+		if (!$product) {
+			throw $this->createNotFoundException('No product found for id '.$id);
+		}
+		$em->remove($product);
+		$em->flush();
+        return $this->render('AdminCategoryBundle:Default:delete.html.twig', array('product' => $product));
 
 	}
+
 
 }
