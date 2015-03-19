@@ -27,8 +27,8 @@ class DefaultController extends Controller
         
         //formの作成
         $form = $this->createFormBuilder($product)
-        ->add('name', 'text')
-        ->getForm();
+            ->add('name', 'text')
+            ->getForm();
         if ($request->getMethod() == 'POST') {
             //bindRequestが呼び出された時点でフォームに反映される
             $form->bind($request);
@@ -51,11 +51,13 @@ class DefaultController extends Controller
         //select * from Product where id=$idと同じ
         $product = $em->getRepository('AdminCategoryBundle:Product')->find($id);
 
+        //該当のidが見つからなかった時の処理
         if (!$product) {
             throw $this->createNotFoundException('No product found for id '.$id);
         }
-
+        //ここでformを作成している
         $editForm = $this->createEditForm($product);
+
         return $this->render('AdminCategoryBundle:Default:edit.html.twig', array(
             'product'      => $product,
             'edit_form'   => $editForm->createView(),
