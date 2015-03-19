@@ -106,7 +106,7 @@ class DefaultController extends Controller
         if (!$product) {
 		    throw $this->createNotFoundException('No product found for id '.$id);
         }
-		$em->remove($product);
+        $em->remove($product);
         $em->flush();
         return $this->render('AdminCategoryBundle:Default:delete.html.twig', array('product' => $product, 'id'=> $id));
     }
