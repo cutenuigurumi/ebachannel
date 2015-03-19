@@ -64,7 +64,7 @@ class DefaultController extends Controller
         ));
     }
     private function createEditForm($product)
-    {
+    { 
         $form = $this->createForm(new ProductType(), $product, array(
             'action' => $this->generateUrl('product_update', array('id' => $product->getId())),
             'method' => 'PUT',
@@ -90,7 +90,7 @@ class DefaultController extends Controller
         //値のチェック
         if ($editForm->isValid()) {
             $em->flush();
-        return $this->redirect($this->generateUrl('product', array('id' => $id)));
+            return $this->redirect($this->generateUrl('product', array('id' => $id)));
         }
         
         return $this->render('AdminCategoryBundle:post:edit.html.twig', array(
