@@ -2,11 +2,16 @@ product:
     path:   /listShow
     defaults: { _controller: "AdminCategoryBundle:Default:index" }
 product_new:
-    path:     /new
+    path:     /detailNew
     defaults: { _controller: "AdminCategoryBundle:Default:new" }
 product_edit:
     path:     /{id}/detailEdit
     defaults: { _controller: "AdminCategoryBundle:Default:edit" }
+product_update:
+    path:     /{id}/detailUpdate
+    defaults: { _controller: "AdminCategoryBundle:Default:update" }
+    requirements: { _method: post|put }
 product_delete:
     path:     /{id}/detailDelete
     defaults: { _controller: "AdminCategoryBundle:Default:delete" }
+

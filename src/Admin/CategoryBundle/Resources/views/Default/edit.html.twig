@@ -5,15 +5,7 @@
 {% block body %}
 
 <h1>カテゴリ一覧</h1>
-	<table>
-		<tr>
-		<td>ID</td>
-		<td>名前</td>
-		</tr>
-		<tr>
-			<td>{{ product.id }}</td>
-			<td>{{ product.name }}</td>
-		</tr>
-	</table>
+
+    {{ form(edit_form) }}
 
 {% endblock %}

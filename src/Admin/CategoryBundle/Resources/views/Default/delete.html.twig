@@ -2,10 +2,16 @@
 {% block title %}ブログ記事の一覧{% endblock %}
 
 {% block body %}
+<p>
+ID:{{ id }}
+</p>
+<p>
+Name:{{ product.name }}
+</p>
+を削除しました。
 
-
-削除しました
-
+<p>
 <a href="{{ path('product') }}">一覧へ戻る</a>
+</p>
 {% endblock %}
 
