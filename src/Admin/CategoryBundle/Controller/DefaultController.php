@@ -13,10 +13,10 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-    //Productテーブルの中身を$repositoryに入れる
+        //Productテーブルの中身を$repositoryに入れる
         $repository = $this->getDoctrine()->getRepository('AdminCategoryBundle:Product');
-    //全ての商品をfind(SELECT * FROM Product)
-    $product = $repository->findAll();
+        //全ての商品をfind(SELECT * FROM Product)
+        $product = $repository->findAll();
         return $this->render('AdminCategoryBundle:Default:index.html.twig', array('product' => $product));
     }
 
