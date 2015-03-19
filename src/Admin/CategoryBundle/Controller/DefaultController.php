@@ -104,7 +104,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $product = $em->getRepository('AdminCategoryBundle:Product')->find($id);
         if (!$product) {
-		    throw $this->createNotFoundException('No product found for id '.$id);
+            throw $this->createNotFoundException('No product found for id '.$id);
         }
         $em->remove($product);
         $em->flush();
