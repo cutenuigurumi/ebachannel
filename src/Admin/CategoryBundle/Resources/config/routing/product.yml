@@ -1,17 +1,23 @@
-product:
-    path:   /listShow
+product_index:
+    path:   /index
     defaults: { _controller: "AdminCategoryBundle:Default:index" }
+product_detail:
+    path:   /detail
+    defaults: { _controller: "AdminCategoryBundle:Default:detail" }
 product_new:
-    path:     /detailNew
+    path:     /new
     defaults: { _controller: "AdminCategoryBundle:Default:new" }
+productBulkNew:
+    path:     /bulkNew
+    defaults: { _controller: "AdminCategoryBundle:Default:bulkNew" }
 product_edit:
-    path:     /{id}/detailEdit
+    path:     /edit/{id}
     defaults: { _controller: "AdminCategoryBundle:Default:edit" }
 product_update:
-    path:     /{id}/detailUpdate
+    path:     /update/{id}
     defaults: { _controller: "AdminCategoryBundle:Default:update" }
     requirements: { _method: post|put }
 product_delete:
-    path:     /{id}/detailDelete
+    path:     /delete/{id}
     defaults: { _controller: "AdminCategoryBundle:Default:delete" }
 
