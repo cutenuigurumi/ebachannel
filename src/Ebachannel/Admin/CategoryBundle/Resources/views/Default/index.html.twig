@@ -1,1 +1,24 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block title %}ブログ記事の一覧{% endblock %}
+
+{% block body %}
+
+<h1>カテゴリ一覧</h1>
+    <table>
+        <tr>
+        <td>ID</td>
+        <td>名前</td>
+        </tr>
+        {% for category in product %}
+        <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td><a href="{{ path('product_edit', { 'id': category.id }) }}">編集</a></td>
+			<td><a href="{{ path('product_delete', { 'id': category.id }) }}">削除</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+<a href="{{ path('product_new') }}">新規作成</a>
+
+{% endblock %}

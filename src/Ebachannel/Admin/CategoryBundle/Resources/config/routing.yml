@@ -1,3 +1,6 @@
 ebachannel_admin_category_homepage:
     path:     /hello/{name}
     defaults: { _controller: EbachannelAdminCategoryBundle:Default:index }
+admin_categorys:
+    resource: "@AdminCategoryBundle/Resources/config/routing/product.yml"
+    prefix:   /admin/category

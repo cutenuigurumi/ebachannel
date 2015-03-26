@@ -14,6 +14,10 @@ class category
      */
     private $id;
 
+    /**
+     * @var string
+     */
+    private $name;
 
     /**
      * Get id

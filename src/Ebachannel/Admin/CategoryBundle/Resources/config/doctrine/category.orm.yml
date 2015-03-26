@@ -1,10 +1,13 @@
 Ebachannel\Admin\CategoryBundle\Entity\category:
     type: entity
-    table: null
+    table: category
     id:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        name:
+            type: text
     lifecycleCallbacks: {  }
