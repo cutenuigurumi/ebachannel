@@ -1,0 +1,12 @@
+admin_category_post:
+    resource: "@AdminCategoryBundle/Resources/config/routing/post.yml"
+    prefix:   /admin/category
+
+admin_categorys_post:
+    resource: "@AdminCategoryBundle/Resources/config/routing/product.yml"
+    prefix:   /admin/categorys
+
+admin_category_homepage:
+    path:     /admin/categorys/{page}
+    defaults: { _controller: AdminCategoryBundle:Default:index }
+
