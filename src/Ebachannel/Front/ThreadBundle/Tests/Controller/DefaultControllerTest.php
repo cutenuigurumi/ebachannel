@@ -1,6 +1,6 @@
 <?php
 
-namespace Front\ThreadBundle\Tests\Controller;
+namespace Ebachannel\Front\ThreadBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

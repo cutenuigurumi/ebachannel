@@ -1,0 +1,4 @@
+services:
+#    ebachannel_front_thread.example:
+#        class: Ebachannel\Front\ThreadBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,4 +1,0 @@
-services:
-#    front_thread.example:
-#        class: Front\ThreadBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

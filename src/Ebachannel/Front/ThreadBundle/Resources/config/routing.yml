@@ -1,0 +1,3 @@
+ebachannel_front_thread_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: EbachannelFrontThreadBundle:Default:index }
