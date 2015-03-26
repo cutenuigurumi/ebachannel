@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new HelloBundle\WinRoadHelloBundle(),
             new Admin\CategoryBundle\AdminCategoryBundle(),
+            new Front\ThreadBundle\FrontThreadBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

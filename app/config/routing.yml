@@ -1,3 +1,7 @@
+front_thread:
+    resource: "@FrontThreadBundle/Resources/config/routing.yml"
+    prefix:   /
+
 admin_category:
     resource: "@AdminCategoryBundle/Resources/config/routing.yml"
     prefix:   /
