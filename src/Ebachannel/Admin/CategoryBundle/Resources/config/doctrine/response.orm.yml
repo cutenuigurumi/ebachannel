@@ -1,0 +1,29 @@
+Ebachannel\Admin\CategoryBundle\Entity\category:
+    actAs: { Timestampable: ~ }
+    type: entity
+    table: thread
+    id:
+        id:
+            type: integer
+            primary: true
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        no:
+            type: integer
+            primary: true
+        user_name:
+            type: text
+        user_mail:
+            type: text
+        body:
+            type: text
+        delete_flag:
+            type: integer
+        thread_id:
+            type: integer
+            primary: true
+        create_time:
+            type: datetime            
+    lifecycleCallbacks: {  }

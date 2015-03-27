@@ -6,14 +6,6 @@ ebachannel_admin_category:
     resource: "@EbachannelAdminCategoryBundle/Resources/config/routing.yml"
     prefix:   /
 
-front_thread:
-    resource: "@FrontThreadBundle/Resources/config/routing.yml"
-    prefix:   /
-
-admin_category:
-    resource: "@AdminCategoryBundle/Resources/config/routing.yml"
-    prefix:   /
-
 
 win_road_hello:
     resource: "@WinRoadHelloBundle/Resources/config/routing.yml"

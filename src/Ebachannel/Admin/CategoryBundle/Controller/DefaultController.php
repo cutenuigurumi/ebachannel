@@ -15,7 +15,13 @@ class DefaultController extends Controller
         //categoryテーブルの中身を$repositoryに入れる
         $repository = $this->getDoctrine()->getRepository('EbachannelAdminCategoryBundle:category');
         //全ての商品をfind(SELECT * FROM category)
-        $category = $repository->findAll();
+  //      $category = $repository->findAll();
+        
+        $category = $em->getRepository('EbachannelAdminCategoryBundle:category')->find($id);
+        $count = 0;
+        foreach($id as => ){
+            $count = $count + $id;
+        }
         return $this->render('EbachannelAdminCategoryBundle:Default:index.html.twig', array('category' => $category));
     }
     public function newAction(Request $request)
@@ -37,7 +43,7 @@ class DefaultController extends Controller
                 $em->persist($category);
                 //データベースに反映
                 $em->flush();
-                return $this->redirect($this->generateUrl('category'));
+                return $this->redirect($this->generateUrl('category_index'));
             }
         }
         return $this->render('EbachannelAdminCategoryBundle:Default:new.html.twig', array('category' => $category,  'form' => $form->createView()));
@@ -81,7 +87,7 @@ class DefaultController extends Controller
         //値のチェック
         if ($editForm->isValid()) {
             $em->flush();
-            return $this->redirect($this->generateUrl('category', array('id' => $id)));
+            return $this->redirect($this->generateUrl('category_index', array('id' => $id)));
         }
         
         return $this->render('EbachannelAdminCategoryBundle:Default:edit.html.twig', array(

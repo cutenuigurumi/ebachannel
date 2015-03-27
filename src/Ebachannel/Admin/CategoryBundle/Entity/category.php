@@ -14,10 +14,6 @@ class category
      */
     private $id;
 
-    /**
-     * @var string
-     */
-    private $name;
 
     /**
      * Get id
@@ -27,5 +23,33 @@ class category
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * @var string
+     */
+    private $name;
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return post
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

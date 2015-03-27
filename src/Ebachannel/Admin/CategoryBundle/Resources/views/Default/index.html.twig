@@ -10,15 +10,15 @@
         <td>ID</td>
         <td>名前</td>
         </tr>
-        {% for category in product %}
+        {% for category in category %}
         <tr>
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
-            <td><a href="{{ path('product_edit', { 'id': category.id }) }}">編集</a></td>
-			<td><a href="{{ path('product_delete', { 'id': category.id }) }}">削除</a></td>
+            <td><a href="{{ path('category_edit', { 'id': category.id }) }}">編集</a></td>
+			<td><a href="{{ path('category_delete', { 'id': category.id }) }}">削除</a></td>
         </tr>
         {% endfor %}
     </table>
-<a href="{{ path('product_new') }}">新規作成</a>
+<a href="{{ path('category_new') }}">新規作成</a>
 
 {% endblock %}
