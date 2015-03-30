@@ -1,18 +1,13 @@
-Ebachannel\Admin\CategoryBundle\Entity\thread:
+Ebachannel\Front\ThreadBundle\Entity\category:
     type: entity
-    table: thread
+    table: category
     id:
         id:
             type: integer
-            primary: true
             id: true
             generator:
                 strategy: AUTO
     fields:
         name:
             type: text
-        category_id:
-            type: integer
-        last_update_time:
-            type: datetime            
     lifecycleCallbacks: {  }

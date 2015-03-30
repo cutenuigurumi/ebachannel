@@ -1,10 +1,18 @@
 Ebachannel\Front\ThreadBundle\Entity\thread:
     type: entity
-    table: null
+    table: thread
     id:
         id:
             type: integer
+            primary: true
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        name:
+            type: text
+        category_id:
+            type: integer
+        last_update_time:
+            type: datetime            
     lifecycleCallbacks: {  }

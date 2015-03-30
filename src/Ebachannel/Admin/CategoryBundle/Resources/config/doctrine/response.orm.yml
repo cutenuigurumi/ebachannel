@@ -1,5 +1,4 @@
-Ebachannel\Admin\CategoryBundle\Entity\category:
-    actAs: { Timestampable: ~ }
+Ebachannel\Admin\CategoryBundle\Entity\response:
     type: entity
     table: thread
     id:
