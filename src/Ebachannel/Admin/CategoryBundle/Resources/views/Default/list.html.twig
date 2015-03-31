@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-
+idを合計した数は{{ count }}です。
 {% for category in categorys %}
     <p>{{ category.category_id|e }}</p>
     <p>{{ category.category_name|e }}</p>

@@ -15,9 +15,15 @@ class DefaultController extends Controller
         //categoryテーブルの中身を$repositoryに入れる
         $repository = $this->getDoctrine()->getRepository('EbachannelAdminCategoryBundle:category');
         //全ての商品をfind(SELECT * FROM category)
-        $category = $repository->findAll();
-        
-        return $this->render('EbachannelAdminCategoryBundle:Default:index.html.twig', array('category' => $category));
+        $categories = $repository->findAll();
+        $count = 0;
+        foreach($categories as $category){
+            echo "<pre>";
+            print_r($category);
+            echo "</pre>";
+            $count = $count + $category->getId();
+        }
+            return $this->render('EbachannelAdminCategoryBundle:Default:index.html.twig', array('category' => $categories, 'count' => $count));
     }
     public function newAction(Request $request)
     {
