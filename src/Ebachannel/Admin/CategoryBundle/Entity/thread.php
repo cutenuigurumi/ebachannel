@@ -108,4 +108,60 @@ class thread
     {
         return $this->last_update_time;
     }
+    /**
+     * @var string
+     */
+    private $body;
+
+
+    /**
+     * Set body
+     *
+     * @param string $body
+     * @return thread
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string 
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $updated_at;
+
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return thread
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
 }

@@ -11,8 +11,11 @@ Ebachannel\Admin\CategoryBundle\Entity\thread:
     fields:
         name:
             type: text
+            default: options={"default":"名無しさん"}
         category_id:
             type: integer
-        last_update_time:
-            type: datetime            
-    lifecycleCallbacks: {  }
+        body:
+            type: text
+        updated_at:   ~
+    lifecycleCallbacks:
+        prePersist: [ setUpdatedAt ]

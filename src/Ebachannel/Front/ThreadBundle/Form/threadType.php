@@ -19,8 +19,9 @@ class threadType extends AbstractType
     }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', 'textarea');
+        $builder->add('name', 'text');
         $builder->add('body', 'textarea');
+        $builder->add('category_id', 'hidden');
         
     }
     /**

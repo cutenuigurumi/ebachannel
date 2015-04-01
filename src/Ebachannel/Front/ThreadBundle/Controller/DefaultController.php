@@ -42,6 +42,6 @@ class DefaultController extends Controller
                 return $this->redirect($this->generateUrl('front_thread_index'), array('category_id' => $category_id));
             }
         }
-        return $this->render('EbachannelAdminCategoryBundle:Default:new.html.twig', array('thread' => $thread,  'form' => $form->createView()));
+        return $this->render('EbachannelFrontThreadBundle:Default:new.html.twig', array('thread' => $thread,  'form' => $form->createView()));
     }
 }
