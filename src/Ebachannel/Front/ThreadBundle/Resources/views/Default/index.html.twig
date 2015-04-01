@@ -1,1 +1,14 @@
 カテゴリ名：{{category.name}}
+<table>
+    <tr>
+        <td>ID</td>
+        <td>名前</td>
+    </tr>
+        {% for category in category %}
+        <tr>
+            <td>{{ thread.id }}</td>
+            <td>{{ thread.name }}</td>
+        </tr>
+       {% endfor %}
+</table>
+<a href="{{ path('front_thread_new', { 'category_id': category.id }) }}">新規作成</a>

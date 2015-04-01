@@ -18,9 +18,9 @@ class DefaultController extends Controller
         $categories = $repository->findAll();
         $count = 0;
         foreach($categories as $category){
-            echo "<pre>";
+      /*      echo "<pre>";
             print_r($category);
-            echo "</pre>";
+            echo "</pre>";    */
             $count = $count + $category->getId();
         }
             return $this->render('EbachannelAdminCategoryBundle:Default:index.html.twig', array('category' => $categories, 'count' => $count));
@@ -44,7 +44,7 @@ class DefaultController extends Controller
                 $em->persist($category);
                 //データベースに反映
                 $em->flush();
-                return $this->redirect($this->generateUrl('category_index'));
+                return $this->redirect($this->generateUrl('admin_category_index'));
             }
         }
         return $this->render('EbachannelAdminCategoryBundle:Default:new.html.twig', array('category' => $category,  'form' => $form->createView()));
@@ -68,7 +68,7 @@ class DefaultController extends Controller
     private function createEditForm($category)
     { 
         $form = $this->createForm(new categoryType(), $category, array(
-            'action' => $this->generateUrl('category_update', array('id' => $category->getId())),
+            'action' => $this->generateUrl('admin_category_update', array('id' => $category->getId())),
             'method' => 'PUT',
         ));
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -88,7 +88,7 @@ class DefaultController extends Controller
         //値のチェック
         if ($editForm->isValid()) {
             $em->flush();
-            return $this->redirect($this->generateUrl('category_index', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_category_index', array('id' => $id)));
         }
         
         return $this->render('EbachannelAdminCategoryBundle:Default:edit.html.twig', array(

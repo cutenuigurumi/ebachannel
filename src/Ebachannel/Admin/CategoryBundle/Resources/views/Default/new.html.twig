@@ -1,10 +1,10 @@
 
-<form action="{{ path('category_new') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('admin_category_new') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
 
     <input type="submit" />
 </form>
 
-        <a href="{{ path('category_index') }}">
+        <a href="{{ path('admin_category_index') }}">
             Back to the list
         </a>

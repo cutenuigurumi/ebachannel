@@ -1,6 +1,6 @@
 Ebachannel\Admin\CategoryBundle\Entity\response:
     type: entity
-    table: thread
+    table: response
     id:
         id:
             type: integer

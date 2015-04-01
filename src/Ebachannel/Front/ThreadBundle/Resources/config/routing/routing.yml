@@ -1,3 +1,6 @@
 front_thread_index:
-    path:   /index/{id}
+    path:   /index/{category_id}
     defaults: { _controller: "EbachannelFrontThreadBundle:Default:index" }
+front_thread_new:
+    path:   /new/{category_id}
+    defaults: { _controller: "EbachannelFrontThreadBundle:Default:new" }

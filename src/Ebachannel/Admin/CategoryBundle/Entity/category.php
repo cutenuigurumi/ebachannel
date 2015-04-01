@@ -14,6 +14,11 @@ class category
      */
     private $id;
 
+    /**
+     * @var string
+     */
+    private $name;
+
 
     /**
      * Get id
@@ -24,17 +29,12 @@ class category
     {
         return $this->id;
     }
-    /**
-     * @var string
-     */
-    private $name;
-
 
     /**
      * Set name
      *
      * @param string $name
-     * @return post
+     * @return category
      */
     public function setName($name)
     {

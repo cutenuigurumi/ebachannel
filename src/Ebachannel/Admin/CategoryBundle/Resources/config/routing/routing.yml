@@ -1,16 +1,16 @@
-category_index:
+admin_category_index:
     path:   /index
     defaults: { _controller: "EbachannelAdminCategoryBundle:Default:index" }
-category_new:
+admin_category_new:
     path:     /new
     defaults: { _controller: "EbachannelAdminCategoryBundle:Default:new" }
-category_edit:
+admin_category_edit:
     path:     /edit/{id}
     defaults: { _controller: "EbachannelAdminCategoryBundle:Default:edit" }
-category_update:
+admin_category_update:
     path:     /update/{id}
     defaults: { _controller: "EbachannelAdminCategoryBundle:Default:update" }
     requirements: { _method: post|put }
-category_delete:
+admin_category_delete:
     path:     /delete/{id}
     defaults: { _controller: "EbachannelAdminCategoryBundle:Default:delete" }
