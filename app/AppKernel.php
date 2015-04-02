@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new HelloBundle\WinRoadHelloBundle(),
             new Ebachannel\Admin\CategoryBundle\EbachannelAdminCategoryBundle(),
             new Ebachannel\Front\ThreadBundle\EbachannelFrontThreadBundle(),
+            new Ebachannel\Front\CategoryBundle\EbachannelFrontCategoryBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

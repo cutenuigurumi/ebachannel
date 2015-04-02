@@ -1,3 +1,7 @@
+ebachannel_front_category:
+    resource: "@EbachannelFrontCategoryBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ebachannel_front_thread:
     resource: "@EbachannelFrontThreadBundle/Resources/config/routing.yml"
     prefix:   /
