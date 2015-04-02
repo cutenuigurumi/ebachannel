@@ -20,7 +20,7 @@ class DefaultController extends Controller
         //該当のidが見つからなかった時の処理
         if (!$category) {
             return $this->render('EbachannelFrontThreadBundle:Default:error.html.twig');
-                    }
+        }
         if (!$thread) {
             $nothing_message = 'スレッドがまだありません。。';
         }
