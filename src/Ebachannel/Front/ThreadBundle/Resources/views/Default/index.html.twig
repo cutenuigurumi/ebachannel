@@ -20,5 +20,7 @@
        {% endfor %}
 </table>
 <p>{{ nothing_message }}</p>
-<a href="{{ path('front_thread_new', { 'category_id': category.id }) }}">新規作成</a>
+<a href="{{ path('front_thread_new', { 'category_id': category.id }) }}">新規スレッド作成画面へ</a>
+<a href="{{ path('front_category_index')}}">カテゴリ一覧に戻る</a>
+
 {% endblock body %}

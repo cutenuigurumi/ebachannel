@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}えばちゃんねるとっぷ{% endblock %}
+
+{% block body %}
+<h1>カテゴリ一覧</h1>
+    <table>
+        <tr>
+        <td>ID</td>
+        <td>名前</td>
+        </tr>
+        {% for category in category %}
+        <tr>
+            <td>{{ category.id }}</td>
+            <td><a href="{{ path('front_thread_index', { 'category_id': category.id }) }}">{{ category.name }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

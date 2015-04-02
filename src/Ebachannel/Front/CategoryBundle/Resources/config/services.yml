@@ -1,0 +1,4 @@
+services:
+#    ebachannel_front_category.example:
+#        class: Ebachannel\Front\CategoryBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
