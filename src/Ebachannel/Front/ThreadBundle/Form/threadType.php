@@ -22,6 +22,7 @@ class threadType extends AbstractType
         $builder->add('name', 'text');
         $builder->add('body', 'textarea');
         $builder->add('category_id', 'hidden');
+        $builder->add('updated_at', 'hidden');
         
     }
     /**
@@ -34,6 +35,10 @@ class threadType extends AbstractType
     public function getBody()
     {
         return 'ebachannel_admin_categorybundle_body';
+    }
+    public function getCategoryId()
+    {
+        return 'ebachannel_admin_categorybundle_category_id';
     }
 }
 

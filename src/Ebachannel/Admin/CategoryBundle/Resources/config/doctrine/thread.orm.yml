@@ -16,6 +16,7 @@ Ebachannel\Admin\CategoryBundle\Entity\thread:
             type: integer
         body:
             type: text
-        updated_at:   ~
+        updated_at:
+            type: datetime
     lifecycleCallbacks:
-        prePersist: [ setUpdatedAt ]
+        prePersist: [ prePersist ]

@@ -14,8 +14,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $category = $em->getRepository('EbachannelAdminCategoryBundle:category')->find($category_id);
-        $thread = $em->getRepository('EbachannelAdminCategoryBundle:thread')->findAll($category_id);
-        
+        $thread = $em->getRepository('EbachannelAdminCategoryBundle:thread')->findALL($category_id);
         //該当のidが見つからなかった時の処理
         if (!$category) {
             throw $this->createNotFoundException('No category found for id '.$category_id);
@@ -26,7 +25,9 @@ class DefaultController extends Controller
     {
         //threadオブジェクトの生成
         $thread = new thread();
-    
+        $thread->setCategoryId($category_id);
+//print_r($thread->getCategoryId());
+//print_r($category_id);        
         //formの作成
         $form = $this->createForm(new threadType(), $thread);
         if ($request->getMethod() == 'POST') {
@@ -39,9 +40,9 @@ class DefaultController extends Controller
                 $em->persist($thread);
                 //データベースに反映
                 $em->flush();
-                return $this->redirect($this->generateUrl('front_thread_index'), array('category_id' => $category_id));
+                return $this->redirect($this->generateUrl('front_thread_index', array('category_id' => $category_id)));
             }
         }
-        return $this->render('EbachannelFrontThreadBundle:Default:new.html.twig', array('thread' => $thread,  'form' => $form->createView()));
+        return $this->render('EbachannelFrontThreadBundle:Default:new.html.twig', array('category_id' => $category_id, 'thread' => $thread,  'form' => $form->createView()));
     }
 }

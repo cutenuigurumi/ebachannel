@@ -164,4 +164,22 @@ class thread
     {
         return $this->updated_at;
     }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate()
+    {
+        // Add your code here
+        $this->updated_at = new \DateTime();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        // Add your code here
+        $this->updated_at = new \DateTime();
+    }
 }
