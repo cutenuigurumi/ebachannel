@@ -12,6 +12,6 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository('EbachannelAdminCategoryBundle:category');
         //全ての商品をfind(SELECT * FROM category)
         $categories = $repository->findAll();
-    return $this->render('EbachannelFrontCategoryBundle:Default:index.html.twig', array('category' => $categories));
+        return $this->render('EbachannelFrontCategoryBundle:Default:index.html.twig', array('category' => $categories));
     }
 }
