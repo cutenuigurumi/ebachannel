@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}えばちゃんねる：{{thread.name}}
+{% endblock %}
+
+{% block body %}
+<p>
+スレタイ：{{ thread.name }}
+</p>
+<p>
+本文：{{ thread.body }}</a>
+</p>
+<p>
+  <a href="{{ path('front_response_new', { 'thread_id': thread_id }) }}">新規書き込み</a>
+</p>
+
+<a href="{{ path('front_category_index') }}">
+    スレッド一覧に戻る
+</a>
+{% endblock %}

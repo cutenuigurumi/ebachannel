@@ -4,19 +4,35 @@ Ebachannel\Admin\CategoryBundle\Entity\thread:
     id:
         id:
             type: integer
-            primary: true
+            nullable: false
+            unsigned: false
+            comment: ''
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     fields:
         name:
             type: text
-            default: options={"default":"名無しさん"}
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
         category_id:
             type: integer
-        body:
-            type: text
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: category_id
         updated_at:
             type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+        body:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
     lifecycleCallbacks:
         prePersist: [ prePersist ]

@@ -24,11 +24,6 @@ class thread
      */
     private $category_id;
 
-    /**
-     * @var \DateTime
-     */
-    private $last_update_time;
-
 
     /**
      * Get id
@@ -86,28 +81,6 @@ class thread
         return $this->category_id;
     }
 
-    /**
-     * Set last_update_time
-     *
-     * @param \DateTime $lastUpdateTime
-     * @return thread
-     */
-    public function setLastUpdateTime($lastUpdateTime)
-    {
-        $this->last_update_time = $lastUpdateTime;
-
-        return $this;
-    }
-
-    /**
-     * Get last_update_time
-     *
-     * @return \DateTime 
-     */
-    public function getLastUpdateTime()
-    {
-        return $this->last_update_time;
-    }
     /**
      * @var string
      */
@@ -182,4 +155,7 @@ class thread
         // Add your code here
         $this->updated_at = new \DateTime();
     }
+    
+
+
 }

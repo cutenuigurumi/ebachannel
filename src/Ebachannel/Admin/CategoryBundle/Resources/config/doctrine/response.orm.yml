@@ -2,27 +2,49 @@ Ebachannel\Admin\CategoryBundle\Entity\response:
     type: entity
     table: response
     id:
-        id:
+        'no':
             type: integer
-            primary: true
+            nullable: false
+            unsigned: false
+            comment: ''
             id: true
-            generator:
-                strategy: AUTO
-    fields:
-        no:
+        threadId:
             type: integer
-            primary: true
-        user_name:
-            type: text
-        user_mail:
-            type: text
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: thread_id
+    fields:
+        userName:
+            type: string
+            nullable: true
+            length: 10
+            fixed: false
+            comment: ''
+            column: user_name
+        userMail:
+            type: string
+            nullable: true
+            length: 30
+            fixed: false
+            comment: ''
+            column: user_mail
         body:
             type: text
-        delete_flag:
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        deleteFlag:
             type: integer
-        thread_id:
-            type: integer
-            primary: true
-        create_time:
-            type: datetime            
+            nullable: true
+            unsigned: false
+            comment: ''
+            column: delete_flag
+        createdAt:
+            type: datetime
+            nullable: true
+            comment: ''
+            column: created_at
     lifecycleCallbacks: {  }

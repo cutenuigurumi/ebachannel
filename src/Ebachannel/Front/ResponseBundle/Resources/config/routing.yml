@@ -1,0 +1,7 @@
+front_response_index:
+    path:     /front/response/index/{thread_id}
+    defaults: { _controller: EbachannelFrontResponseBundle:Default:index }
+front_response_new:
+    path:     /front/response/new/{thread_id}
+    defaults: { _controller: EbachannelFrontResponseBundle:Default:new }
+    

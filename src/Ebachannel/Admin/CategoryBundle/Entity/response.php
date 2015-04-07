@@ -5,29 +5,30 @@ namespace Ebachannel\Admin\CategoryBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * response
+ * category
  */
 class response
 {
-    /**
-     * @var integer
-     */
-    private $id;
-
+    
     /**
      * @var integer
      */
     private $no;
 
     /**
-     * @var string
+     * @var integer
      */
-    private $user_name;
+    private $threadId;
 
     /**
      * @var string
      */
-    private $user_mail;
+    private $userName;
+
+    /**
+     * @var string
+     */
+    private $userMail;
 
     /**
      * @var string
@@ -37,28 +38,13 @@ class response
     /**
      * @var integer
      */
-    private $delete_flag;
-
-    /**
-     * @var integer
-     */
-    private $thread_id;
+    private $deleteFlag;
 
     /**
      * @var \DateTime
      */
-    private $create_time;
+    private $createdAt;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set no
@@ -84,49 +70,72 @@ class response
     }
 
     /**
-     * Set user_name
+     * Set threadId
+     *
+     * @param integer $threadId
+     * @return response
+     */
+    public function setThreadId($threadId)
+    {
+        $this->threadId = $threadId;
+
+        return $this;
+    }
+
+    /**
+     * Get threadId
+     *
+     * @return integer 
+     */
+    public function getThreadId()
+    {
+        return $this->threadId;
+    }
+
+    /**
+     * Set userName
      *
      * @param string $userName
      * @return response
      */
     public function setUserName($userName)
     {
-        $this->user_name = $userName;
+        $this->userName = $userName;
 
         return $this;
     }
 
     /**
-     * Get user_name
+     * Get userName
      *
      * @return string 
      */
     public function getUserName()
     {
-        return $this->user_name;
+        return $this->userName;
     }
 
     /**
-     * Set user_mail
+     * Set userMail
      *
      * @param string $userMail
      * @return response
      */
     public function setUserMail($userMail)
     {
-        $this->user_mail = $userMail;
+        $this->userMail = $userMail;
 
         return $this;
     }
 
     /**
-     * Get user_mail
+     * Get userMail
      *
      * @return string 
      */
     public function getUserMail()
     {
-        return $this->user_mail;
+        return $this->userMail;
     }
 
     /**
@@ -153,71 +162,53 @@ class response
     }
 
     /**
-     * Set delete_flag
+     * Set deleteFlag
      *
      * @param integer $deleteFlag
      * @return response
      */
     public function setDeleteFlag($deleteFlag)
     {
-        $this->delete_flag = $deleteFlag;
+        $this->deleteFlag = $deleteFlag;
 
         return $this;
     }
 
     /**
-     * Get delete_flag
+     * Get deleteFlag
      *
      * @return integer 
      */
     public function getDeleteFlag()
     {
-        return $this->delete_flag;
+        return $this->deleteFlag;
     }
 
     /**
-     * Set thread_id
+     * Set createdAt
      *
-     * @param integer $threadId
+     * @param \DateTime $createdAt
      * @return response
      */
-    public function setThreadId($threadId)
+    public function setCreatedAt($createdAt)
     {
-        $this->thread_id = $threadId;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get thread_id
-     *
-     * @return integer 
-     */
-    public function getThreadId()
-    {
-        return $this->thread_id;
-    }
-
-    /**
-     * Set create_time
-     *
-     * @param \DateTime $createTime
-     * @return response
-     */
-    public function setCreateTime($createTime)
-    {
-        $this->create_time = $createTime;
-
-        return $this;
-    }
-
-    /**
-     * Get create_time
+     * Get createdAt
      *
      * @return \DateTime 
      */
-    public function getCreateTime()
+    public function getCreatedAt()
     {
-        return $this->create_time;
+        return $this->createdAt;
+    }
+    public function prePersist()
+    {
+        // Add your code here
+        $this->created_at = new \DateTime();
     }
 }

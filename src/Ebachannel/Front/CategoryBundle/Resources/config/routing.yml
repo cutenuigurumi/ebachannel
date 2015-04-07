@@ -1,3 +1,7 @@
 front_category_index:
     path:   /front/category/index
     defaults: { _controller: "EbachannelFrontCategoryBundle:Default:index" }
+front_category_new:
+    path:   /front/category/new
+    defaults: { _controller: "EbachannelFrontCategoryBundle:Default:new" }
+    

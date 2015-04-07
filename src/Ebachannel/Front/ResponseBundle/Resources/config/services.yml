@@ -1,0 +1,4 @@
+services:
+#    ebachannel_front_response.example:
+#        class: Ebachannel\Front\ResponseBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

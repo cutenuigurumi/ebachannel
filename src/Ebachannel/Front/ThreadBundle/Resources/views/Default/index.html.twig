@@ -14,13 +14,13 @@
         {% for thread in thread %}
         <tr>
             <td>{{ thread.id }}</td>
-            <td>{{ thread.name }}</td>
+            <td><a href="{{path('front_response_index', {'thread_id':  thread.id })}}">{{ thread.name }}</a></td>
             
         </tr>
        {% endfor %}
 </table>
 <p>{{ nothing_message }}</p>
 <a href="{{ path('front_thread_new', { 'category_id': category.id }) }}">新規スレッド作成画面へ</a>
-<a href="{{ path('front_category_index')}}">カテゴリ一覧に戻る</a>
+<a href="{{ path('admin_category_index')}}">カテゴリ一覧に戻る</a>
 
 {% endblock body %}
