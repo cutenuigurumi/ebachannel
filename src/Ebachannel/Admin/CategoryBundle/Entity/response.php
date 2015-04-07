@@ -4,6 +4,7 @@ namespace Ebachannel\Admin\CategoryBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * category
  */

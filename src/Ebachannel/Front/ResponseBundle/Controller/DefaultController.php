@@ -8,42 +8,46 @@ use Symfony\Component\HttpFoundation\Request;
 use Ebachannel\Admin\CategoryBundle\Entity\thread;
 use Ebachannel\Admin\CategoryBundle\Entity\response;
 
+//1の書き込みにたいして他のユーザがレスポンスを返していくので、新規ユーザ登録時に＋2の固定値を用意しておく
+define("NEW_RESPONSE", "2");
+
+
 class DefaultController extends Controller
 {
     public function indexAction($thread_id)
     {
         $repository = $this->getDoctrine()->getRepository('EbachannelAdminCategoryBundle:response');
-        for($i = 1; $i< 1000; $i++){
-            $response = $repository->findOneBy(array('no' => $i, 'threadId' => $thread_id));
-        }
+        $responses = $repository->findBy(array('threadId' => $thread_id));
         $repository = $this->getDoctrine()->getRepository('EbachannelAdminCategoryBundle:thread');
         $thread = $repository->find(array('id' => $thread_id));
-        
-        return $this->render('EbachannelFrontResponseBundle:Default:index.html.twig', array('thread' => $thread, 'response' => $response, 'thread_id' => $thread_id));
+        print_r($responses);
+        return $this->render('EbachannelFrontResponseBundle:Default:index.html.twig', array('thread' => $thread, 'responses' => $responses, 'thread_id' => $thread_id));
     }
     public function newAction(Request $request, $thread_id)
     {    
-        $count = $this->getEntityManager()
-            ->createQuery('SELECT COUNT(thread_id) FROM EbachanAdminCategoryBundle:response')
-            ->getSingleScalarResult;
-
-        if(isNULL($responses->getNo())){
-            $no = 2;
-        }else {
-            $no = $responses->getNo() + 1;
+        $repository = $this->getDoctrine()->getManager()->getRepository('EbachannelAdminCategoryBundle:response');
+        $qb = $repository->createQuerybuilder('a');
+        $qb->select('COUNT(a.threadId)');
+        $qb->where("a.threadId = $thread_id");
+        $count = $qb->getQuery()->getSingleScalarResult();
+        if(is_null($count)){
+            $no = NEW_RESPONSE;
+        }else{
+            $no = $count + NEW_RESPONSE;
         }
         //select count(thread_id) from response where thread_id = $thread_id 
-        
         $response = new response();
-        $response->setThreadId($thread_id)
-            ->setNo($no);
-        
+
         //formの作成
         $form = $this->createForm(new responseType(), $response);
         if ($request->getMethod() == 'POST') {
             //bindRequestが呼び出された時点でフォームに反映される
             $form->bind($request);
             if ($form->isValid()) {
+                $response->setThreadId($thread_id)
+                ->setNo($no);
+                print_r($response);
+                
                 //Entityマネージャー
                 $em = $this->getDoctrine()->getEntityManager();
                 //プログラム側のエンティティに追加

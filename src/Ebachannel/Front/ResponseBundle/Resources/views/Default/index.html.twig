@@ -8,9 +8,16 @@
 スレタイ：{{ thread.name }}
 </p>
 <p>
-本文：{{ thread.body }}</a>
+{{ thread.body }}</a>
 </p>
 <p>
+
+{% for response in responses %}
+<p>{{ response.no }}:{{response.userName}}:{{response.createdAt|date('Y/m/d')}}</p>
+<p>{{response.body}}</p>
+{% endfor %}
+
+
   <a href="{{ path('front_response_new', { 'thread_id': thread_id }) }}">新規書き込み</a>
 </p>
 
