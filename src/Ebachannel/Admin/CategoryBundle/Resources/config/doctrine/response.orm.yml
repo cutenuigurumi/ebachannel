@@ -17,14 +17,15 @@ Ebachannel\Admin\CategoryBundle\Entity\response:
             column: thread_id
     fields:
         userName:
-            type: string
+            type: text
             nullable: true
             length: 10
             fixed: false
             comment: ''
             column: user_name
+            default: '名無しさん'
         userMail:
-            type: string
+            type: text
             nullable: true
             length: 30
             fixed: false
@@ -47,4 +48,6 @@ Ebachannel\Admin\CategoryBundle\Entity\response:
             nullable: true
             comment: ''
             column: created_at
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]
+    

@@ -20,22 +20,22 @@ class DefaultController extends Controller
         $responses = $repository->findBy(array('threadId' => $thread_id));
         $repository = $this->getDoctrine()->getRepository('EbachannelAdminCategoryBundle:thread');
         $thread = $repository->find(array('id' => $thread_id));
-        print_r($responses);
+//         print_r($responses);
         return $this->render('EbachannelFrontResponseBundle:Default:index.html.twig', array('thread' => $thread, 'responses' => $responses, 'thread_id' => $thread_id));
     }
     public function newAction(Request $request, $thread_id)
     {    
+        //select count(thread_id) from response where thread_id = $thread_id
         $repository = $this->getDoctrine()->getManager()->getRepository('EbachannelAdminCategoryBundle:response');
-        $qb = $repository->createQuerybuilder('a');
-        $qb->select('COUNT(a.threadId)');
-        $qb->where("a.threadId = $thread_id");
+        $qb = $repository->createQuerybuilder('res');
+        $qb->select('COUNT(res.threadId)');
+        $qb->where("res.threadId = $thread_id");
         $count = $qb->getQuery()->getSingleScalarResult();
         if(is_null($count)){
             $no = NEW_RESPONSE;
         }else{
             $no = $count + NEW_RESPONSE;
         }
-        //select count(thread_id) from response where thread_id = $thread_id 
         $response = new response();
 
         //formの作成
@@ -46,7 +46,6 @@ class DefaultController extends Controller
             if ($form->isValid()) {
                 $response->setThreadId($thread_id)
                 ->setNo($no);
-                print_r($response);
                 
                 //Entityマネージャー
                 $em = $this->getDoctrine()->getEntityManager();

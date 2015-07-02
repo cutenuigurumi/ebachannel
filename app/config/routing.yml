@@ -1,3 +1,7 @@
+ebachannel_front_login:
+    resource: "@EbachannelFrontLoginBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ebachannel_front_response:
     resource: "@EbachannelFrontResponseBundle/Resources/config/routing.yml"
     prefix:   /
@@ -22,3 +26,4 @@ win_road_hello:
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+    

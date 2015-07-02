@@ -32,12 +32,12 @@ class DefaultController extends Controller
         $thread = new thread();
         //formの作成
         $form = $this->createForm(new threadType(), $thread);
-        
         if ($request->getMethod() == 'POST') {
             //bindRequestが呼び出された時点でフォームに反映される
             $form->bind($request);
             if ($form->isValid()) {
                 $thread->setCategoryId($category_id);
+                
                 //Entityマネージャー
                 $em = $this->getDoctrine()->getEntityManager();
                 //プログラム側のエンティティに追加

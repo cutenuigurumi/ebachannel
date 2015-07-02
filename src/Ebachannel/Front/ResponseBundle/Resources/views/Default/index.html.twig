@@ -8,12 +8,12 @@
 スレタイ：{{ thread.name }}
 </p>
 <p>
-{{ thread.body }}</a>
+1.{{ thread.body }}</a>
 </p>
 <p>
 
 {% for response in responses %}
-<p>{{ response.no }}:{{response.userName}}:{{response.createdAt|date('Y/m/d')}}</p>
+<p>{{ response.no }}:{{response.userName}}:{{response.createdAt|date('Y/m/d (D) H:i:s')}}</p>
 <p>{{response.body}}</p>
 {% endfor %}
 

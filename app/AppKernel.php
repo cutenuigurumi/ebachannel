@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Ebachannel\Front\ThreadBundle\EbachannelFrontThreadBundle(),
             new Ebachannel\Front\CategoryBundle\EbachannelFrontCategoryBundle(),
             new Ebachannel\Front\ResponseBundle\EbachannelFrontResponseBundle(),
+            new Ebachannel\Front\LoginBundle\EbachannelFrontLoginBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

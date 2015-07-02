@@ -34,6 +34,7 @@ Ebachannel\Admin\CategoryBundle\Entity\thread:
             length: null
             fixed: false
             comment: ''
+
     lifecycleCallbacks:
         prePersist: [ prePersist ]
     
