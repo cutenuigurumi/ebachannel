@@ -1,0 +1,21 @@
+Ebachannel\Admin\CategoryBundle\Entity\login:
+    type: entity
+    table: login
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: '255'
+        password:
+            type: string
+            length: '255'
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+    lifecycleCallbacks:
+        prePersist: [ prePersist ]

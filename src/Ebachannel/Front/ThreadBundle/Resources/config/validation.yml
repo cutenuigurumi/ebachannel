@@ -1,0 +1,4 @@
+Ebachannel\Admin\CategoryBundle\Entity\response:
+    properties:
+        userName:
+            - NotBlank: ~
