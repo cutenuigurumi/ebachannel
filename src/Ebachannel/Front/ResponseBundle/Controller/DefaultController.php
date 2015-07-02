@@ -11,7 +11,7 @@ use Ebachannel\Admin\CategoryBundle\Entity\response;
 //1の書き込みにたいして他のユーザがレスポンスを返していくので、新規ユーザ登録時に＋2の固定値を用意しておく
 define("NEW_RESPONSE", "2");
 
-
+//フロント側のレスポンスコントローラー
 class DefaultController extends Controller
 {
     public function indexAction($thread_id)
